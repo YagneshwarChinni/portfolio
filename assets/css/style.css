@@ -143,7 +143,15 @@ input, textarea {
 
 html { font-family: var(--ff-poppins); }
 
-body { background: var(--smoky-black); }
+body {
+  background: var(--smoky-black);
+  overflow-x: hidden;
+}
+
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+}
 
 
 
@@ -292,6 +300,7 @@ main {
   margin: 15px 12px;
   margin-bottom: 75px;
   min-width: 259px;
+  width: calc(100% - 24px);
 }
 
 .body {
@@ -304,6 +313,7 @@ main {
     }
 
     .download-wrapper {
+      max-width: 100%;
       text-align: center;
     }
 
@@ -317,6 +327,7 @@ main {
       position: relative;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 12px;
       padding: 15px 30px;
       background: linear-gradient(135deg, #4f46e5, #6366f1);
@@ -328,6 +339,8 @@ main {
       overflow: hidden;
       box-shadow: 0 12px 30px rgba(99, 102, 241, 0.3);
       transition: all 0.4s ease;
+      max-width: 100%;
+      flex-wrap: wrap;
     }
 
     .download-btn:hover {
@@ -361,6 +374,15 @@ main {
     .download-btn span, .download-btn .icon {
       position: relative;
       z-index: 1;
+    }
+
+    .info-content .name,
+    .info-content .title,
+    .service-item-text,
+    .timeline-text,
+    .contact-info :is(.contact-link, time, address),
+    .download-wrapper h1 {
+      overflow-wrap: anywhere;
     }
 
     @keyframes rotate {
@@ -1309,6 +1331,99 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .project-img,
   .blog-banner-box { height: auto; }
+
+}
+
+
+
+/**
+ * responsive smaller than 580px screen
+ */
+
+@media (max-width: 579px) {
+
+  main {
+    margin: 12px;
+    margin-bottom: 88px;
+    width: calc(100% - 24px);
+  }
+
+  .sidebar,
+  article {
+    padding: 12px;
+  }
+
+  .sidebar.active {
+    max-height: 900px;
+  }
+
+  .sidebar-info {
+    gap: 12px;
+  }
+
+  .avatar-box img {
+    width: 88px;
+  }
+
+  .info-content .name {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .info-content .title {
+    max-width: 100%;
+  }
+
+  .info_more-btn {
+    top: -12px;
+    right: -12px;
+    padding: 8px 10px;
+  }
+
+  .navbar-list {
+    gap: 4px;
+    padding: 0 6px;
+  }
+
+  .navbar-link {
+    padding: 16px 6px;
+    font-size: 11px;
+  }
+
+  .about-text,
+  .service-item-text,
+  .timeline-text {
+    font-size: 14px;
+  }
+
+  .download-wrapper h1 {
+    font-size: clamp(22px, 6vw, 28px);
+    margin-bottom: 18px;
+  }
+
+  .download-btn {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 16px;
+  }
+
+  .contacts-list,
+  .service-list,
+  .timeline-list,
+  .skills-list,
+  .input-wrapper {
+    gap: 14px;
+  }
+
+  .contact-item {
+    gap: 12px;
+  }
+
+  .contact-info {
+    min-width: 0;
+    width: calc(100% - 42px);
+  }
 
 }
 
